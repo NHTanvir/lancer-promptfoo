@@ -1,0 +1,34 @@
+# Canonical upstream promptfoo CLI surface tracked for parity.
+# Subcommand : flags
+
+eval        : --config -o/--output --max-concurrency --delay --repeat --watch --resume --retry-errors --suggest-prompts --tag --author --share --no-share --no-cache --no-progress-bar --env-file --fail-on --filter-first-n --filter-range --filter-pattern --filter-metadata --filter-prompts --filter-providers --csv-metrics --grader
+redteam run : --config -o/--output --max-concurrency --delay --num-tests --plugins --strategies --no-cache --no-progress-bar --no-remote --baseline --fail-on --tag --author --share --no-share --markdown --env-file
+redteam init/setup : --target --label --purpose -o/--output --preset --num-tests --provider --auth
+redteam     : plugins --filter | strategies | generate | report
+optimize    : (eval flags)
+code-scans  : run <path> -o/--output
+scan-model  : <path> --model-audit-scanners
+mcp         : (stdio JSON-RPC)
+validate    : --config
+logs        :
+delete      : <id>
+retry       : <id>
+show        : <id>
+auth        : login --api-key --email | logout | whoami | teams --switch | can-create-targets
+config      : set <k> <v> | get <k> | show
+feedback    : <message>
+debug       :
+view        : --port --legacy
+share       : --id --team
+import-openai-evals : <id>
+list        : evals | prompts | datasets
+export      : <id> -o/--output
+init        : --target --label --purpose -o/--output --preset --num-tests --provider --auth
+self-test   :
+serve       : --target --bind --header --history
+report      : <input> --markdown --fail-on --baseline -o/--output
+
+# Output formats (parity): json, yaml, csv, html, xml, sarif, junit, markdown, text
+# Env vars honored: PROMPTFOO_DISABLE_REDTEAM_REMOTE_GENERATION, PROMPTFOO_CACHE_PATH,
+#   PROMPTFOO_LOG_DIR, PROMPTFOO_CONFIG_DIR, PROMPTFOO_SHARING_ENDPOINT, HF_TOKEN,
+#   OPENAI_API_KEY, ANTHROPIC_API_KEY, GOOGLE_API_KEY, AWS_*, AZURE_*, GROQ_API_KEY, ...
