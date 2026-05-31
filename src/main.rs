@@ -1,15 +1,6 @@
-//! lancer-promptfoo
-//! Rust clone of promptfoo. See plan.md (local, gitignored) for the spec.
-
-use clap::Parser;
-
-#[derive(Parser, Debug)]
-#[command(name = "lancer-promptfoo", version, about = "Rust clone of promptfoo")]
-struct Cli {}
+//! `lancer-promptfoo` — primary binary. Opens the native GUI by default; falls
+//! through to the CLI surface when a subcommand (or `--cli`) is given.
 
 fn main() -> anyhow::Result<()> {
-    tracing_subscriber::fmt::init();
-    let _cli = Cli::parse();
-    println!("lancer-promptfoo - scaffold ready. Implement per plan.md.");
-    Ok(())
+    lancer_promptfoo::run_main()
 }
